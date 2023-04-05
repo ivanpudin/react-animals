@@ -1,0 +1,58 @@
+.card {
+    width: 15rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 0.8px solid black;
+    border-radius: 10px;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.card:hover {
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.card img {
+    width: 15rem;
+    border-radius: 10px;
+}
+
+.likes {
+    width: 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.likes button {
+    height: 2rem;
+    width: 2rem;
+    background-color: grey;
+    border: none;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    border: none;
+    border-radius: 100px;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.likes button:nth-child(n + 2) {
+    background-color: red;
+}
+
+.likes button:hover,
+.close:hover {
+    filter: brightness(0.5);
+}
