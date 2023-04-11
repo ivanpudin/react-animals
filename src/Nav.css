@@ -1,0 +1,20 @@
+.Nav ul {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.Nav li {
+    margin: 0 0.5rem 0 0.5rem;
+    list-style-type: none;
+}
+
+.Nav a {
+    color: black;
+    text-decoration: none;
+}
+
+.Nav a:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+}

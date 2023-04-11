@@ -1,0 +1,23 @@
+.Home {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.Home a {
+    margin: 2rem;
+    text-decoration: none;
+    color: black;
+}
+
+.Home a:hover {
+    opacity: 0.85;
+    transition: 0.3s;
+}
+
+.Home a h2 {
+    margin-top: 1rem;
+    text-align: center;
+}

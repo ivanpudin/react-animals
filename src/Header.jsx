@@ -1,9 +1,11 @@
 import './Header.css'
+import Nav from './Nav'
 
-const Header = () => {
+const Header = (props) => {
     return (
-        <header className='header'>
+        <header className='Header'>
             <h1>Welcome to our Zoo!</h1>
+            {props.children}
         </header>
     )
 }

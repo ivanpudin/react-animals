@@ -1,13 +1,19 @@
 import React, { Component } from 'react'
-import { animals } from './animalsList'
+import { animals, birds } from './animalsList'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Header from './Header'
-import Animals from './Animals'
+import Nav from './Nav'
+import Home from './Home'
 import Search from './Search'
+import Animals from './Animals'
+import Birds from './Birds'
+import About from './About'
 
 class App extends Component {
     state = {
         animals:animals,
+        birds:birds,
         searchInput:''
     }
 
@@ -17,18 +23,24 @@ class App extends Component {
         })
     }
 
-    removeHandler = (name) => {
+    removeHandlerAnimals = (name) => {
         const result = this.state.animals.filter(animal => animal.name !== name)
         this.setState({
             animals:result
         })
-        console.log(result)
     }
 
-    likesHandler = (name, action) => {
+    removeHandlerBirds = (name) => {
+        const result = this.state.birds.filter(bird => bird.name !== name)
+        this.setState({
+            birds:result
+        })
+    }
+
+    likesHandlerAnimals = (name, action) => {
         this.setState((prevState) => {
             // eslint-disable-next-line array-callback-return
-            const result = prevState.animals.map((animal) => {
+            const result = prevState.animals.map(animal => {
                 if (animal.name === name) {
                     if (action === 'add') {
                         return {...animal, likes:animal.likes + 1}
@@ -44,19 +56,64 @@ class App extends Component {
             }
         })
     }
+
+    likesHandlerBirds = (name, action) => {
+        this.setState((prevState) => {
+            // eslint-disable-next-line array-callback-return
+            const result = prevState.birds.map(bird => {
+                if (bird.name === name) {
+                    if (action === 'add') {
+                        return {...bird, likes:bird.likes + 1}
+                    } else if (action === 'remove') {
+                        return {...bird, likes:bird.likes - 1}
+                    }
+                } else {
+                    return bird
+                }
+            })
+            return {
+                birds:result
+            }
+        })
+    }
     
     render() {
         return (
-            <div className="App">
-                <Header />
-                <Search
-                searchHandler={this.searchHandler} />
-                <Animals
-                data={this.state.animals}
-                removeHandler={this.removeHandler}
-                likesHandler={this.likesHandler}
-                searchInput={this.state.searchInput} />
-            </div>
+            <BrowserRouter>
+                <div className="App">
+                    <Header>
+                        <Nav
+                        animals={this.state.animals}
+                        birds={this.state.birds} />
+                    </Header>
+                    <Routes>
+                        <Route path='/' element={<Home />} />
+                        <Route path='/animals' element={
+                            <div className='animals_container'>
+                                <Search
+                                searchHandler={this.searchHandler} />
+                                <Animals
+                                data={this.state.animals}
+                                removeHandler={this.removeHandlerAnimals}
+                                likesHandler={this.likesHandlerAnimals}
+                                searchInput={this.state.searchInput} />
+                            </div>
+                        } />
+                        <Route path='/birds' element={
+                            <div className='birds_container'>
+                                <Search
+                                searchHandler={this.searchHandler} />
+                                <Birds
+                                data={this.state.birds}
+                                removeHandler={this.removeHandlerBirds}
+                                likesHandler={this.likesHandlerBirds}
+                                searchInput={this.state.searchInput} />
+                            </div>
+                        } />
+                        <Route path='/about' element={<About />} />
+                    </Routes>
+                </div>
+            </BrowserRouter>
         )
     }
 }
