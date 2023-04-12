@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import { animals, birds } from './animalsList'
+import { animals, birds } from './data/animalsList'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import './App.css'
-import Header from './Header'
-import Nav from './Nav'
-import Home from './Home'
-import Search from './Search'
-import Animals from './Animals'
-import Birds from './Birds'
-import About from './About'
+import './UI/App.css'
+import Header from './components/Header'
+import Nav from './components/Nav'
+import Home from './components/Home'
+import Search from './components/Search'
+import Animals from './components/Animals'
+import Birds from './components/Birds'
+import About from './components/About'
 
 class App extends Component {
     state = {
@@ -81,15 +81,15 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className="App">
-                    <Header>
-                        <Nav
-                        animals={this.state.animals}
-                        birds={this.state.birds} />
-                    </Header>
                     <Routes>
                         <Route path='/' element={<Home />} />
                         <Route path='/animals' element={
                             <div className='animals_container'>
+                                <Header>
+                                    <Nav
+                                    animals={this.state.animals}
+                                    birds={this.state.birds} />
+                                </Header>
                                 <Search
                                 searchHandler={this.searchHandler} />
                                 <Animals
@@ -101,6 +101,11 @@ class App extends Component {
                         } />
                         <Route path='/birds' element={
                             <div className='birds_container'>
+                                <Header>
+                                    <Nav
+                                    animals={this.state.animals}
+                                    birds={this.state.birds} />
+                                </Header>
                                 <Search
                                 searchHandler={this.searchHandler} />
                                 <Birds
@@ -110,7 +115,16 @@ class App extends Component {
                                 searchInput={this.state.searchInput} />
                             </div>
                         } />
-                        <Route path='/about' element={<About />} />
+                        <Route path='/about' element={
+                            <div className='about_container'>
+                                <Header>
+                                    <Nav
+                                    animals={this.state.animals}
+                                    birds={this.state.birds} />
+                                </Header>
+                                <About />
+                            </div>
+                        } />
                     </Routes>
                 </div>
             </BrowserRouter>

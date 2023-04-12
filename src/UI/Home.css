@@ -1,0 +1,41 @@
+.Home {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.home_animals,
+.home_birds {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home_animals {
+    background: url('../content/animals.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+
+.home_birds {
+    background: url('../content/birds.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+
+.Home a {
+    text-decoration: none;
+    color: black;
+}
+
+.Home a:hover {
+    opacity: 0.85;
+    transition: 0.3s;
+}
+
+.Home a h2 {
+    text-align: center;
+}

@@ -1,9 +1,9 @@
+import '../UI/Animals.css'
 import Card from './Card'
-import './Animals.css'
 
-const Birds = (props) => {
-    const searchFilter = props.data.filter(bird => {
-        return bird.name.includes(props.searchInput)
+const Animals = (props) => {
+    const searchFilter = props.data.filter(animal => {
+        return animal.name.includes(props.searchInput)
     })
 
     return (
@@ -21,4 +21,4 @@ const Birds = (props) => {
     )
 }
 
-export default Birds
+export default Animals

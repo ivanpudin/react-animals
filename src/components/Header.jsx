@@ -1,5 +1,4 @@
-import './Header.css'
-import Nav from './Nav'
+import '../UI/Header.css'
 
 const Header = (props) => {
     return (

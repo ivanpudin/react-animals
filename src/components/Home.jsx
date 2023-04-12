@@ -1,15 +1,13 @@
 import { NavLink } from 'react-router-dom'
-import './Home.css'
+import '../UI/Home.css'
 
 const Home = () => {
     return (
         <div className="Home">
-            <NavLink to='/Animals'>
-                <img src="https://source.unsplash.com/400x400/?Animal" alt="animal" />
+            <NavLink to='/Animals' className='home_animals'>
                 <h2>Animals</h2>
             </NavLink>
-            <NavLink to='/Birds'>
-                <img src="https://source.unsplash.com/400x400/?Bird" alt="bird" />
+            <NavLink to='/Birds' className='home_birds'>
                 <h2>Birds</h2>
             </NavLink>
         </div>
