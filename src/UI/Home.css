@@ -5,6 +5,8 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
+.Home a,
 .home_animals,
 .home_birds {
     width: 50vw;
@@ -12,30 +14,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    overflow: hidden;
 }
 
 .home_animals {
+    position: relative;
+    color: black;
     background: url('../content/animals.jpg');
     background-position: center center;
     background-size: cover;
 }
 
 .home_birds {
+    position: relative;
+    color: white;
     background: url('../content/birds.jpg');
     background-position: center center;
     background-size: cover;
 }
 
-.Home a {
-    text-decoration: none;
-    color: black;
-}
-
-.Home a:hover {
-    opacity: 0.85;
+.home_animals:hover,
+.home_birds:hover {
+    filter: blur(1px);
+    scale: 1.2;
     transition: 0.3s;
-}
-
-.Home a h2 {
-    text-align: center;
 }

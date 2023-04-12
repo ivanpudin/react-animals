@@ -13,9 +13,9 @@ const Animals = (props) => {
                 key={item.name}
                 name={item.name}
                 likes={item.likes}
-                removeCard={() => props.removeHandler(item.name)}
-                removeLikes={() => props.likesHandler(item.name, 'remove')}
-                addLikes={() => props.likesHandler(item.name, 'add')} />
+                removeCard={() => props.removeHandler(item.name, 'animals')}
+                removeLikes={() => props.likesHandler(item.name, 'remove', 'animals')}
+                addLikes={() => props.likesHandler(item.name, 'add', 'animals')} />
              })}
         </div>
     )

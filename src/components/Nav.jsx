@@ -10,10 +10,10 @@ const Nav = (props) => {
                         <NavLink to='/'>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/animals'>Animals({props.animals.length})</NavLink>
+                        <NavLink to='/animals'>Animals({props.data.animals.length})</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/birds'>Birds({props.birds.length})</NavLink>
+                        <NavLink to='/birds'>Birds({props.data.birds.length})</NavLink>
                     </li>
                     <li>
                         <NavLink to='/about'>About</NavLink>

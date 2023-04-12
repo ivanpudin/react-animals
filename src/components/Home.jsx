@@ -4,11 +4,15 @@ import '../UI/Home.css'
 const Home = () => {
     return (
         <div className="Home">
-            <NavLink to='/Animals' className='home_animals'>
-                <h2>Animals</h2>
+            <NavLink to='/Animals'>
+                <div className='home_animals'>
+                    <h2>Animals</h2>
+                </div>
             </NavLink>
-            <NavLink to='/Birds' className='home_birds'>
-                <h2>Birds</h2>
+            <NavLink to='/Birds'>
+                <div className='home_birds'>
+                    <h2>Birds</h2>
+                </div>
             </NavLink>
         </div>
     )

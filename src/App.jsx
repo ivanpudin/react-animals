@@ -23,56 +23,47 @@ class App extends Component {
         })
     }
 
-    removeHandlerAnimals = (name) => {
-        const result = this.state.animals.filter(animal => animal.name !== name)
+    removeHandler = (name, list) => {
+        const result = this.state[list].filter(item => item.name !== name)
         this.setState({
-            animals:result
+            [list]:result
         })
     }
 
-    removeHandlerBirds = (name) => {
-        const result = this.state.birds.filter(bird => bird.name !== name)
-        this.setState({
-            birds:result
-        })
-    }
-
-    likesHandlerAnimals = (name, action) => {
-        this.setState((prevState) => {
-            // eslint-disable-next-line array-callback-return
-            const result = prevState.animals.map(animal => {
-                if (animal.name === name) {
+    likesHandler = (name, action, list) => {
+/*         this.setState(prevState => {
+            const result = prevState[list].map(item => {
+                if (item.name === name) {
                     if (action === 'add') {
-                        return {...animal, likes:animal.likes + 1}
+                        return {...item, likes:item.likes + 1}
                     } else if (action === 'remove') {
-                        return {...animal, likes:animal.likes - 1}
+                        return {...item, likes:item.likes - 1}
                     }
                 } else {
-                    return animal
+                    return item
                 }
             })
             return {
-                animals:result
+                [list]:result
+            }
+        }) */
+
+        // eslint-disable-next-line array-callback-return
+        const result = this.state[list].map(item => {
+            if (item.name === name) {
+                if (action === 'add') {
+                    return {...item, likes:item.likes + 1}
+                } else if (action === 'remove') {
+                    return {...item, likes:item.likes - 1}
+                }
+            } else {
+                return item
             }
         })
-    }
 
-    likesHandlerBirds = (name, action) => {
-        this.setState((prevState) => {
-            // eslint-disable-next-line array-callback-return
-            const result = prevState.birds.map(bird => {
-                if (bird.name === name) {
-                    if (action === 'add') {
-                        return {...bird, likes:bird.likes + 1}
-                    } else if (action === 'remove') {
-                        return {...bird, likes:bird.likes - 1}
-                    }
-                } else {
-                    return bird
-                }
-            })
+        this.setState(() => {
             return {
-                birds:result
+                [list]:result
             }
         })
     }
@@ -87,15 +78,14 @@ class App extends Component {
                             <div className='animals_container'>
                                 <Header>
                                     <Nav
-                                    animals={this.state.animals}
-                                    birds={this.state.birds} />
+                                    data={this.state} />
                                 </Header>
                                 <Search
                                 searchHandler={this.searchHandler} />
                                 <Animals
                                 data={this.state.animals}
-                                removeHandler={this.removeHandlerAnimals}
-                                likesHandler={this.likesHandlerAnimals}
+                                removeHandler={this.removeHandler}
+                                likesHandler={this.likesHandler}
                                 searchInput={this.state.searchInput} />
                             </div>
                         } />
@@ -103,15 +93,14 @@ class App extends Component {
                             <div className='birds_container'>
                                 <Header>
                                     <Nav
-                                    animals={this.state.animals}
-                                    birds={this.state.birds} />
+                                    data={this.state} />
                                 </Header>
                                 <Search
                                 searchHandler={this.searchHandler} />
                                 <Birds
                                 data={this.state.birds}
-                                removeHandler={this.removeHandlerBirds}
-                                likesHandler={this.likesHandlerBirds}
+                                removeHandler={this.removeHandler}
+                                likesHandler={this.likesHandler}
                                 searchInput={this.state.searchInput} />
                             </div>
                         } />
@@ -119,8 +108,7 @@ class App extends Component {
                             <div className='about_container'>
                                 <Header>
                                     <Nav
-                                    animals={this.state.animals}
-                                    birds={this.state.birds} />
+                                    data={this.state} />
                                 </Header>
                                 <About />
                             </div>
