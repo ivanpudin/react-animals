@@ -18,25 +18,31 @@
     overflow: hidden;
 }
 
-.home_animals {
-    position: relative;
-    color: black;
-    background: url('../content/animals.jpg');
-    background-position: center center;
-    background-size: cover;
-}
-
+.home_animals,
 .home_birds {
     position: relative;
-    color: white;
-    background: url('../content/birds.jpg');
-    background-position: center center;
-    background-size: cover;
+    object-fit: cover;
 }
 
-.home_animals:hover,
-.home_birds:hover {
-    filter: blur(1px);
+.Home img {
+    object-fit: cover;
+    height: 100vh;
+    filter: blur(3px);
+}
+
+.Home h2 {
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    color: white;
+    font-size: 30px;
+}
+
+.Home img:hover {
+    filter: none;
     scale: 1.2;
-    transition: 0.3s;
+}
+
+.Home h2:nth-child(0n + 1) {
+    color: black;
 }
