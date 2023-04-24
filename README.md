@@ -11,8 +11,8 @@ App created to try handling events, changing states, and how to style components
 - Animals list:
   display, like, remove and search animals
 
--Birds list:
-display, like, remove and search birds
+- Birds list:
+  display, like, remove and search birds
 
 # Getting started
 
