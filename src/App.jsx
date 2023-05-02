@@ -14,7 +14,14 @@ class App extends Component {
     state = {
         animals:animals,
         birds:birds,
-        searchInput:''
+        searchInput:'',
+        data: [],
+    }
+
+    componentDidMount() {
+        fetch('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0')
+         .then(data => data.json())
+         .then(data => this.setState({data:data}))
     }
 
     searchHandler = (e) => {
